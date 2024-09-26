@@ -7,8 +7,9 @@
     tools:context=".HelloAndroid">
     <!-- TextView控件，用于在安卓系统中显示文字
         可以看到下面的android:text 就定义了展示的内容"Hello world!"
-        :id 给当前元素定义一个'唯一标识符' ("@+id/自定义id")
-        :layout_width/height: 定义当前元素长/宽 (wrap_content自动确定长宽)
+        :id 给当前元素定义一个'唯一标识符'，用于后期'操作定位' ("@+id/自定义id")
+            这里注册的id就会跑到"R.id"里面去，我们在后续就可以通过'R.id.xxx'来对某个设置了id的'控件'进行定位
+        :layout_width/height: 定义当前元素长/宽 (wrap_content '更具内容'自动确定长宽)
         :text 设定文字信息
 
         这里用的布局为'约束布局'androidx.constraintlayout.widget.ConstraintLayout
