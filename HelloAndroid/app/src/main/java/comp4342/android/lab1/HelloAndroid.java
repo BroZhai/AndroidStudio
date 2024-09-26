@@ -10,5 +10,6 @@ public class HelloAndroid extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        // 这里的setContentView()方法为当前活动"引用了布局"
     }
 }

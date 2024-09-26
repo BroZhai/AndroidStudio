@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HelloAndroid">
-
+    <!-- TextView控件，用于在安卓系统中显示文字
+        可以看到下面的android:text 就定义了展示的内容"Hello world!"
+    -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
