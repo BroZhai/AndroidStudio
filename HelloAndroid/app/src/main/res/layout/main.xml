@@ -7,6 +7,18 @@
     tools:context=".HelloAndroid">
     <!-- TextView控件，用于在安卓系统中显示文字
         可以看到下面的android:text 就定义了展示的内容"Hello world!"
+        :id 给当前元素定义一个'唯一标识符' ("@+id/自定义id")
+        :layout_width/height: 定义当前元素长/宽 (wrap_content自动确定长宽)
+        :text 设定文字信息
+
+        这里用的布局为'约束布局'androidx.constraintlayout.widget.ConstraintLayout
+        意味着我们必须要去设置这些’约束位置‘
+
+        (这里就暂时用parent的来糊弄一下，之后再来具体学习研究，结合那个UI写完后'直接拖位置'XD)
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
     -->
     <TextView
         android:id="@+id/textView"
@@ -17,4 +29,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/my_firstButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我是一个按钮"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.756"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.162" />
 </androidx.constraintlayout.widget.ConstraintLayout>

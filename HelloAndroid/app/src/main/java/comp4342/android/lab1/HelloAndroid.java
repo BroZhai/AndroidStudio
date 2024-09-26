@@ -5,7 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class HelloAndroid extends AppCompatActivity {
-//    AppCompatActivity 是 Activity 的子类 Activity是一个基类)
+//这里的HelloAndroid即为manifest中 Activity绑定的类名
+    //  AppCompatActivity 是 Activity 的子类 Activity是一个基类)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
