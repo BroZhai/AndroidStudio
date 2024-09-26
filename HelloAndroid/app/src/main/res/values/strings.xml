@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Hello Android</string>
+    <string name="app_name">你好，我是string.xml里面被引用的dom</string>
+    <!-- 嘿！我就是被android:label引用的dom 'app_name' awa  -->
 </resources>

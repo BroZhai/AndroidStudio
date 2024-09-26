@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+<!--大体上来说，下面application里面各种的附加标签
+    实际上就是'不同的xml'的内部某个’dom‘引用
+    如:@string/app_name就是对'/res/values/'下'string.xml'中的 名为'app_name'的<dom>进行引用
+    (因为string本身就存在values中，我们@string的话ide就会自己开始在res下的values中'自动开始找')
+    这里的"@"表示的就是从'res'目录下开始找 (但是很多时候ide会自像上面那样'自动定位'，并不需要从'res根'开始写)
+-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -8,12 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+    <!--下面的activity为安卓的一个'屏幕界面'
+        android:name="xxx" 提供Activity的类名
+        andoird:exported= t/f 是否可以通过'其他方式启动'
+            (与下面的intent-filter '启动手法'项 对应，里面定义了该App任何其他的'可启动方法')
+    -->
         <activity
             android:name=".HelloAndroid"
             android:exported="true">
             <intent-filter>
+                <!--允许直接用Android来启动该应用-->
                 <action android:name="android.intent.action.MAIN" />
-
+                <!--运行'从图标点击进入'-->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
