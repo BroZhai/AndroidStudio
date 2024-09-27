@@ -12,8 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Remake"
         tools:targetApi="31">
-
-    <!-- 原本这里的activity是一个‘自闭和标签’
+        <!--
+         原本这里的activity是一个‘自闭和标签’
         自闭合标签: 就像html里面的'简单单标签'样式一样，简单设置好相应属性后直接闭合
         但是一旦里面'还嵌套了其他标签'，那么此时必须用'完整写法'
         示例:
@@ -33,19 +33,28 @@
                     <嵌套标签2></嵌套标签2>
                     ...
             </activity>
-
-     -->
+        -->
         <activity
             android:name=".MyActivity"
-            android:exported="true"
+            android:exported="true">
+            <intent-filter>
+
+                <!-- 接下来在这里为程序配置'主活动'(启动动力XD) -->
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--要实现'页面跳转'，实际上就是创建了'另一个activity'并跳转
+        我们在这里来'注册'另一个Activity
+            (对应myActivity里面的 startActivity(*intentObj*))
+        -->
+        <activity
+            android:name=".SecondActivity"
+
             >
 
-            <intent-filter>
-                <!--接下来在这里为程序配置'主活动'(启动动力XD)-->
-                <action android:name="android.intent.action.MAIN"></action>
-                <category android:name="android.intent.category.LAUNCHER"></category>
-
-            </intent-filter>
         </activity>
     </application>
 
