@@ -6,6 +6,7 @@
 
 <!-- 重写一个按钮-->
     <Button
+        android:id="@+id/mybtn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="我是一个按钮"
