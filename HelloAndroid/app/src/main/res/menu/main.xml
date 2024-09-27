@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 接下来，我们来看看'浮动菜单'，
+    '浮动'默认不会占用任何的屏幕空间，只有在'操作触发'时 才会浮动显示在屏幕上
+    -->
+    <!-- 在<menu>中，我们用<item 各种andorid:属性.../> 来设置各个安卓选项
+        注意: item是个'单标签'<item ... />
+    -->
+    <item android:id="@+id/item1"
+        android:title="我是item1哦"
+        />
+    <item android:id="@+id/item2"
+        android:title="那我就是item2啦"
+        />
+
+</menu>

@@ -1,8 +1,11 @@
 package comp4342.android.lab1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -44,4 +47,25 @@ public class HelloAndroid extends AppCompatActivity {
             }
         });
     }
+
+    //
+    //  快捷键ctrl+o: 快捷搜索选择要重写的方法
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true; //true 将创建的菜单显示出来，false不显示
+    }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()){
+//            case R.id.item1:
+//                Toast.makeText(this,"item1被点击力",Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.item2:
+//                Toast.makeText(this,"点item2干什么?",Toast.LENGTH_SHORT).show();
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }
