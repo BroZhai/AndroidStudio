@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Remake"
         tools:targetApi="31">
         <!--
-         原本这里的activity是一个‘自闭和标签’
+        原本这里的activity是一个‘自闭和标签’
         自闭合标签: 就像html里面的'简单单标签'样式一样，简单设置好相应属性后直接闭合
         但是一旦里面'还嵌套了其他标签'，那么此时必须用'完整写法'
         示例:
@@ -40,8 +40,9 @@
             <intent-filter>
 
                 <!-- 接下来在这里为程序配置'主活动'(启动动力XD) -->
+                <!--直接通过Android '主程序' 启动-->
                 <action android:name="android.intent.action.MAIN" />
-
+                <!--直接点击 '启动器图标' 启动-->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

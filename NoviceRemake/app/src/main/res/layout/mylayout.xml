@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!-- 重写一个按钮-->
 
-    <!--往前面加一个'文字输入框'-->
+    <!--最上面的按钮-->
     <Button
         android:id="@+id/mybtn1"
         android:layout_width="match_parent"
@@ -14,19 +13,21 @@
         android:layout_marginEnd="4dp"
         android:text="我是一个按钮"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
+    <!--中间的文本编辑框-->
     <EditText
         android:id="@+id/inputText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:hint="Please enter your prefered name"
+        android:hint="Please enter your preferred name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
         />
 
+    <!--下面的SUBMIT按钮-->
     <Button
         android:id="@+id/submitText"
         android:layout_width="wrap_content"
@@ -35,7 +36,8 @@
         android:layout_marginTop="92dp"
         android:layout_marginEnd="316dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

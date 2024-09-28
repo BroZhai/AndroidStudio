@@ -26,7 +26,6 @@ public class MyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MyActivity.this,"按钮被点击啦！",Toast.LENGTH_SHORT).show();
-
             }
         });
 
