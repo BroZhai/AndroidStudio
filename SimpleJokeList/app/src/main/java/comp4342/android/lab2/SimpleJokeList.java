@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class SimpleJokeList extends Activity {
 
@@ -32,6 +33,9 @@ public class SimpleJokeList extends Activity {
 	public void onCreate(Bundle savedInstanceState) { // 当Activity创建时
 		super.onCreate(savedInstanceState);
 		// TODO
+		// 调用"初始化layout布局"方法 (注意这里的顺序很重要，要先"创建了布局"，才能往布局里面"塞其他东西")
+		initLayout();
+
 		// 完成"笑话数组"Arraylist的初始化 (注册一个Arraylist对象，里面放的数据类型是Joke)
 		m_arrJokeList = new ArrayList<Joke>();
 
@@ -39,8 +43,12 @@ public class SimpleJokeList extends Activity {
 		// 获取"大资源R"里面定义的一个"<string-array>"，对应下面的.getStringArray方法，"()"里面传R.array.名字 <... name="jokeList">
 		String[] strArray = getResources().getStringArray(R.array.jokeList);
 
-		// 调用"初始化layout布局"方法 (注意这里的顺序很重要，要先"创建了布局"，才能往布局里面"塞其他东西")
-		initLayout();
+		// 遍历strArray数组中的每一个笑话'元素'，将其添加到m_arrJokeList中
+		for(int i=0; i<strArray.length; i++){
+			addJoke(strArray[i]);
+		}
+
+
 	}
 	
 	/**
@@ -67,7 +75,17 @@ public class SimpleJokeList extends Activity {
 	 * @param strJoke
 	 *            A string containing the text of the Joke to add.
 	 */
+	// 这里的addJoke()即为往"m_arrJokeList"动态数组中 追加Joke对象的方法
+	// 上面写的for()就会反复的调用这里，并将笑话内容作为字符串传到这里的strJoke
 	protected void addJoke(String strJoke) {
 		// TODO
+		// 调用Joke的对象构造函数，并塞到m_arrJokeList的尾部
+		Joke jokeAdd = new Joke(strJoke);
+		m_arrJokeList.add(jokeAdd);
+
+		// 除了将Joke对象加入到数组中去，咱也在完成它在界面TextView中的渲染(就直接拿上面传入的String就好了)
+		TextView tv = new TextView(getBaseContext()); //
+		tv.setText(strJoke);
+		tv.setTextSize(23); // 设置字体大小
 	}
 }
