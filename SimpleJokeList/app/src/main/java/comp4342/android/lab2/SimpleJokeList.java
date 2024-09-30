@@ -29,9 +29,18 @@ public class SimpleJokeList extends Activity {
 	protected int m_nLightColor;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) { // 当Activity创建时
 		super.onCreate(savedInstanceState);
 		// TODO
+		// 完成"笑话数组"Arraylist的初始化 (注册一个Arraylist对象，里面放的数据类型是Joke)
+		m_arrJokeList = new ArrayList<Joke>();
+
+		// 获取一下"/values/strings"里面定义的 笑话内容，存到这里的String[] 数组里面
+		// 获取"大资源R"里面定义的一个"<string-array>"，对应下面的.getStringArray方法，"()"里面传R.array.名字 <... name="jokeList">
+		String[] strArray = getResources().getStringArray(R.array.jokeList);
+
+		// 调用"初始化layout布局"方法 (注意这里的顺序很重要，要先"创建了布局"，才能往布局里面"塞其他东西")
+		initLayout();
 	}
 	
 	/**
