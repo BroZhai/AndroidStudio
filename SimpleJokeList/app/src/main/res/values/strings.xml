@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Joke List</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string-array name="jokeList">
+		<item>A small boy swallowed some coins and was taken to a hospital. When his grandmother telephoned to ask how he was a nurse said, \'No change yet\'.</item>
+		<item>Cartoonist found dead in home. Details are sketchy.</item>
+		<item>I wondered why the baseball was getting bigger. Then it hit me.</item>
+	</string-array>
+
+</resources>
