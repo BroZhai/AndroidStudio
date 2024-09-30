@@ -41,6 +41,7 @@ public class SimpleJokeList extends Activity {
 
 		// 获取一下"/values/strings"里面定义的 笑话内容，存到这里的String[] 数组里面
 		// 获取"大资源R"里面定义的一个"<string-array>"，对应下面的.getStringArray方法，"()"里面传R.array.名字 <... name="jokeList">
+		// 前面的getResources()则是获取"所有的资源类"
 		String[] strArray = getResources().getStringArray(R.array.jokeList);
 
 		// 遍历strArray数组中的每一个笑话'元素'，将其添加到m_arrJokeList中
@@ -48,15 +49,18 @@ public class SimpleJokeList extends Activity {
 			addJoke(strArray[i]);
 		}
 
-
+		// 初始化"添加笑话"的事件监听器 (目前还没有搞明白xwx)
+		initAddJokeListeners();
 	}
 	
 	/**
 	 * Method used to encapsulate the code that initializes and sets the Layout
 	 * for this Activity. 
 	 */
+	// 这个方法是用来"初始化layout布局"用的 (对应onCreate()里面的首行调用)
 	protected void initLayout() {
 		// TODO
+
 	}
 	
 	/**
