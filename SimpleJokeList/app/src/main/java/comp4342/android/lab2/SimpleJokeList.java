@@ -96,8 +96,10 @@ public class SimpleJokeList extends Activity {
 		m_arrJokeList.add(jokeAdd);
 
 		// 除了将Joke对象加入到数组中去，咱也在完成它在界面TextView中的渲染(就直接拿上面传入的String就好了)
-		TextView tv = new TextView(getBaseContext()); //
+		TextView tv = new TextView(getBaseContext()); // 创建一个显示文字的TextView控件
 		tv.setText(strJoke);
 		tv.setTextSize(23); // 设置字体大小
+
+		m_vwJokeLayout.addView(tv); //将创建好的TextView控件追加到"m_vwJokeLayout"布局中去
 	}
 }
