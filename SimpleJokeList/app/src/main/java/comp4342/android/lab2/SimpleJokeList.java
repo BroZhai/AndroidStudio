@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class SimpleJokeList extends Activity {
@@ -60,7 +61,14 @@ public class SimpleJokeList extends Activity {
 	// 这个方法是用来"初始化layout布局"用的 (对应onCreate()里面的首行调用)
 	protected void initLayout() {
 		// TODO
+		m_vwJokeLayout=new LinearLayout(getBaseContext()); // TODO: 待搞明白安卓的各种"布局规则"，这里用的是"LinearLayout"
+		m_vwJokeLayout.setOrientation(LinearLayout.VERTICAL);
 
+		// todo:待搞明白下面的ScrollView控件是干什么的...
+		ScrollView sv=new ScrollView(getBaseContext());
+		sv.addView(m_vwJokeLayout);
+
+		setContentView(sv); //这个能看懂，就是之前onCreate里面设置"布局样式"的时候用的
 	}
 	
 	/**
