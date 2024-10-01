@@ -8,6 +8,7 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/app/build
 /app/caches
 /app/.idea
 /app/android
@@ -15,7 +16,6 @@
 /app/jdks
 /app/native
 /app/wrapper
-/app/build
 .DS_Store
 /build
 /captures
