@@ -91,7 +91,7 @@ public class SimpleJokeList extends Activity {
 	// 上面写的for()就会反复的调用这里，并将笑话内容作为字符串传到这里的strJoke
 	protected void addJoke(String strJoke) {
 		// TODO
-		// 调用Joke的对象构造函数，并塞到m_arrJokeList的尾部
+		// 调用Joke的对象构造函数，并塞到m_arrJokeList的尾部，
 		Joke jokeAdd = new Joke(strJoke);
 		m_arrJokeList.add(jokeAdd);
 
