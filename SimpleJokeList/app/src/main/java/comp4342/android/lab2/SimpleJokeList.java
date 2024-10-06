@@ -73,10 +73,38 @@ public class SimpleJokeList extends Activity {
 		m_vwJokeLayout.setOrientation(LinearLayout.VERTICAL);
 
 		// todo:待搞明白下面的ScrollView控件是干什么的...
-		ScrollView sv=new ScrollView(getBaseContext());
+		ScrollView sv=new ScrollView(getBaseContext()); //展示"笑话"的layout
 		sv.addView(m_vwJokeLayout);
 
-		setContentView(sv); //这个能看懂，就是之前onCreate里面设置"布局样式"的时候用的
+		// 新的UI要素，将会添加一个"输入框"和一个"AddJoke"按钮
+		// todo: 搞明白这里的LinearLayout是个什么"布局"
+		LinearLayout root = new LinearLayout(getBaseContext()); //这里是个最大最外的"根布局"
+		root.setOrientation(LinearLayout.VERTICAL);
+
+		LinearLayout addjokeArea = new LinearLayout(getBaseContext());
+		addjokeArea.setOrientation(LinearLayout.HORIZONTAL);
+
+		//往addjokeArea的LinearLayout中添加一个View组件(按钮)
+		m_vwJokeButton = new Button(getBaseContext());
+		m_vwJokeButton.setText("添加笑话"); //设置按钮字体
+		addjokeArea.addView(m_vwJokeButton);//将该按钮添加到addjokeArea layout当中去
+
+		//同样的，再往addjokeArea中添加一个"文字输入框"(EditText)组件
+		m_vwJokeEditText = new EditText(getBaseContext());
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.MATCH_PARENT,
+				LinearLayout.LayoutParams.WRAP_CONTENT
+		);
+		m_vwJokeEditText.setLayoutParams(params); //将上面创建的layout parameters 应用到EditText控件上
+		addjokeArea.addView(m_vwJokeEditText); //将文字输入框添加到addjokeArea layout当中去
+
+		// 将 添加笑话的layout “addjokeArea”, 和笑话展示区layout"sv", 添加到根layout "root"中
+		root.addView(addjokeArea);
+		root.addView(sv);
+
+//		setContentView(sv); //这个能看懂，就是之前onCreate里面设置"布局样式"的时候用的
+		setContentView(root); //由于我们创建了一个新的'总体layout' root, 这里就需要修改一下'展示整体'的layout为root了
+		// root里面涵盖了 添加笑话layout 'addjokeArea' 和 笑话展示区layout 'sv'
 	}
 	
 	/**
