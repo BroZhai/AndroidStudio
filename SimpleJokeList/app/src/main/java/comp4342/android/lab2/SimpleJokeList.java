@@ -142,6 +142,7 @@ public class SimpleJokeList extends Activity {
 		//写完监听器后，别忘了要"应用"在对应组件(按钮)上才能生效哦owo
 		// 使用任何View控件的setOnClickListener(),"()"里面传一个 重写了onClick()方法的'OnClickListener'对象 (对应上面)
 		m_vwJokeButton.setOnClickListener(viewListener);
+
 	}
 
 	/**
