@@ -29,6 +29,7 @@ public class SimpleJokeList extends Activity {
 	 * of Jokes. */
 	protected int m_nDarkColor;
 	protected int m_nLightColor;
+	protected int m_nTextColor;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) { // 当Activity创建时
@@ -36,6 +37,11 @@ public class SimpleJokeList extends Activity {
 		// TODO
 		// 调用"初始化layout布局"方法 (注意这里的顺序很重要，要先"创建了布局"，才能往布局里面"塞其他东西")
 		initLayout();
+
+		// 获取/values/colors.xml里面定义的'亮暗色'背景颜色，还有'文字显示颜色'
+		m_nLightColor = getResources().getColor(R.color.light);
+		m_nDarkColor = getResources().getColor(R.color.dark);
+		m_nTextColor = getResources().getColor(R.color.text);
 
 		// 完成"笑话数组"Arraylist的初始化 (注册一个Arraylist对象，里面放的数据类型是Joke)
 		m_arrJokeList = new ArrayList<Joke>();
@@ -49,6 +55,8 @@ public class SimpleJokeList extends Activity {
 		for(int i=0; i<strArray.length; i++){
 			addJoke(strArray[i]);
 		}
+
+
 
 		// 初始化"添加笑话"的事件监听器 (目前还没有搞明白xwx)
 		initAddJokeListeners();
@@ -99,6 +107,15 @@ public class SimpleJokeList extends Activity {
 		TextView tv = new TextView(getBaseContext()); // 创建一个显示文字的TextView控件
 		tv.setText(strJoke);
 		tv.setTextSize(23); // 设置字体大小
+
+		// 设定新加进去的"笑话"背景色是深色 还是 浅色(便于区分不同的笑话)
+		// 这里的m_nLightColor和m_nDarkColor就是提前在/values/colors.xml中定好的颜色,在OnCreate()中导入了的 (偶亮奇暗)
+		if(m_arrJokeList.size()%2==0){
+			tv.setBackgroundColor(m_nLightColor);
+		} else{
+			tv.setBackgroundColor(m_nDarkColor);
+		}
+		tv.setTextColor(m_nTextColor); //别忘了还有"文字"的颜色
 
 		m_vwJokeLayout.addView(tv); //将创建好的TextView控件追加到"m_vwJokeLayout"布局中去
 	}

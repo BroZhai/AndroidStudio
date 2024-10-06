@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="light">#b2ffff</color> <!--定义"亮色"颜色: 淡蓝色-->
+    <color name="dark">#ffd306</color> <!--定义"暗色"颜色: 暗黄色-->
+    <color name="text">#ffffff</color> <!--字体颜色: 白色-->
+</resources>
