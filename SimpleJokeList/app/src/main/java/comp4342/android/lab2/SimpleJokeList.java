@@ -3,12 +3,16 @@ package comp4342.android.lab2;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SimpleJokeList extends Activity {
 
@@ -114,6 +118,30 @@ public class SimpleJokeList extends Activity {
 	 */
 	protected void initAddJokeListeners() {
 		// TODO
+		// 在这里实现 "添加笑话" 按钮监听器的功能
+		// '监听器'的功能实现原理就是 "重写View.OnClickListener里面的'onClick()'方法"
+		View.OnClickListener viewListener = new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				String addText = m_vwJokeEditText.getText().toString(); //获取到EditText控件中的内容并转成String存储
+				if(!addText.isEmpty()){ //输入的内容不是'空'(调用String 里面的isEmpty()方法进行校验)
+					addJoke(addText); //巧妙调用addJoke('字符串') 添加新笑话
+					m_vwJokeEditText.setText(""); // 清空原有输入框
+
+					//下面这段东西是用于测试输入框时，设定"安卓软键盘"不再弹出(了解即可)
+					InputMethodManager imm = (InputMethodManager)
+							getSystemService(Context.INPUT_METHOD_SERVICE);
+					imm.hideSoftInputFromWindow(m_vwJokeEditText.getWindowToken(), 0);
+
+				}else{
+					Toast.makeText(SimpleJokeList.this,"哎呀，输入的笑话不能为空哦~",Toast.LENGTH_SHORT);
+				}
+			}
+		};
+
+		//写完监听器后，别忘了要"应用"在对应组件(按钮)上才能生效哦owo
+		// 使用任何View控件的setOnClickListener(),"()"里面传一个 重写了onClick()方法的'OnClickListener'对象 (对应上面)
+		m_vwJokeButton.setOnClickListener(viewListener);
 	}
 
 	/**
