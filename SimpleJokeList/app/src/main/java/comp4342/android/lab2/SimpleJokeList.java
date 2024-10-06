@@ -83,7 +83,7 @@ public class SimpleJokeList extends Activity {
 		// 新的UI要素，将会添加一个"输入框"和一个"AddJoke"按钮
 		// todo: 搞明白这里的LinearLayout是个什么"布局"
 		LinearLayout root = new LinearLayout(getBaseContext()); //这里是个最大最外的"根布局"
-		root.setOrientation(LinearLayout.VERTICAL);
+		root.setOrientation(LinearLayout.VERTICAL); //设置根布局的"统一朝向"为垂直
 
 		LinearLayout addjokeArea = new LinearLayout(getBaseContext());
 		addjokeArea.setOrientation(LinearLayout.HORIZONTAL);
@@ -95,6 +95,7 @@ public class SimpleJokeList extends Activity {
 
 		//同样的，再往addjokeArea中添加一个"文字输入框"(EditText)组件
 		m_vwJokeEditText = new EditText(getBaseContext());
+		//下面这个"LinearLayout.LayoutParams"就是一种特别的Linearlayout参数设置属性
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 				LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.WRAP_CONTENT
