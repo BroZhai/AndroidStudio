@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources> 
 	<!-- You must fill in the author_name string resource with your Cal Poly username. -->
-	<string name="author_name">wei lou</string>
+	<string name="author_name">TechNiko_Pancake</string>
     <string name="app_name">JokeList</string> 
     <string-array name="jokeList">
 		<item>A small boy swallowed some coins and was taken to a hospital. When his grandfather telephoned to ask how he was a nurse said, \'No change yet\'.</item>

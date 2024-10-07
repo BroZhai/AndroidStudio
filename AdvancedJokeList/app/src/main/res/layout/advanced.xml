@@ -13,5 +13,38 @@ Note: You must use the following id's for this list of UI Components defined in
 	 This Root element is only here as a place holder to prevent compilation
      errors. Feel free to remove it and replace it with whatever you like.
 -->
-<LinearLayout>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    > <!--这最上面的LinearLayout怎么不算的?这么玩???-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <!--注意，这里的Button必须要在EditText前面，否则输入框会直接盖住按钮，从而只会显示输入框xwx-->
+        <Button
+            android:id="@+id/addJokeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加笑话"
+            />
+
+        <EditText
+            android:id="@+id/newJokeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/jokeListViewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
 </LinearLayout>

@@ -127,7 +127,7 @@ public class AdvancedJokeList extends Activity  implements OnClickListener, OnKe
 		rootLayout.addView(addJokeLayout);
 		rootLayout.addView(scrollView);
 		
-		setContentView(rootLayout);
+		setContentView(R.layout.advanced);
 	}
 
 	/**
