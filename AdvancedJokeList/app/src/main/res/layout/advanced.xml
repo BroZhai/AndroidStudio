@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+Note: You must use the following id's for this list of UI Components defined in
+	  AdvancedJokeList.java 
+	  	UI Component 					Required Resource ID
+	  	....................................................
+		EditText m_vwJokeEditText: 		"newJokeEditText"
+		Button m_vwJokeButton: 			"addJokeButton"
+		LinearLayout m_vwJokeLayout: 	"jokeListViewGroup"
+-->
+
+<!--
+	 This Root element is only here as a place holder to prevent compilation
+     errors. Feel free to remove it and replace it with whatever you like.
+-->
+<LinearLayout>
+</LinearLayout>

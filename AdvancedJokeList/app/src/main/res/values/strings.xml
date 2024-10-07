@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources> 
+	<!-- You must fill in the author_name string resource with your Cal Poly username. -->
+	<string name="author_name">wei lou</string>
+    <string name="app_name">JokeList</string> 
+    <string-array name="jokeList">
+		<item>A small boy swallowed some coins and was taken to a hospital. When his grandfather telephoned to ask how he was a nurse said, \'No change yet\'.</item>
+		<item>Cartoonist found dead in home. Details are sketchy.</item>
+		<item>I wondered why the baseball was getting bigger. Then it hit me.</item>
+	</string-array>
+	<string name="remove_menuitem">Remove</string>
+	<string name="upload_menuitem">Upload Joke To Server</string>
+	<string name="download_menuitem">Download Jokes</string>
+	<string name="filter_menuitem">Filter</string>
+	<string name="like_menuitem">Like</string>
+	<string name="dislike_menuitem">Dislike</string>
+	<string name="unrated_menuitem">Unrated</string>
+	<string name="show_all_menuitem">Show All</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    The following Options Menu for the AdvancedJokeList Activity class is
+	required to use the following resource ID's and Strings for its MenuItems 
+	ID's and Titles:
+	   ##########################################################
+	   | MenuItem		|	Resource ID		| Resource String	|
+	   ##########################################################
+	   | Download Jokes	| download_menuitem	| download_menuitem	|
+	   | Filter Jokes	| filter_menuitem	| filter_menuitem	|
+	   | Like			| like_menuitem		| like_menuitem		|
+	   | Dislike		| dislike_menuitem	| dislike_menuitem	|
+	   | Unrated		| unrated_menuitem	| unrated_menuitem	|
+	   | Show All		| show_all_menuitem	| show_all_menuitem	|
+	   ##########################################################
+	   
+	For example: 
+	   ##########################################################
+	   | MenuItem		|	Resource ID		| Resource String	|
+	   ##########################################################
+	   | item x			| x_menuitem		| x_menuitem		|
+	   ########################################################## 
+
+		<item android:id="@+id/x_menuitem" android:title="@string/x_menuitem"/>
+-->	 
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+</menu>
