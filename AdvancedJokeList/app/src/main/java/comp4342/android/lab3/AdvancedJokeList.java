@@ -98,7 +98,7 @@ public class AdvancedJokeList extends Activity  implements OnClickListener, OnKe
 	 */
 	protected void initLayout() {
 		// TODO
-		// ESSAY
+		// Markdown
 		m_arrJokeList = new ArrayList<Joke>();
 		
 		m_vwJokeLayout = new LinearLayout(getBaseContext());
