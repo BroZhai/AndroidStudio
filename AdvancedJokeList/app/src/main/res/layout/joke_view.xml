@@ -15,4 +15,67 @@ Note: You must use the following id's for this list of UI Components defined in
 	 This Root element is only here as a place holder to prevent compilation
      errors. Feel free to remove it and replace it with whatever you like.
 -->
-<LinearLayout></LinearLayout>
+<!-- 在这个layout布局中，我们要去完善一个"单个笑话评价"布局
+    最外面的根用的是个"相对布局"Relative layout()，里面套了各一个LinearLayout 和 RadioGroup(单选项组)
+    Linear Layout用来展示"+"号 和 对应笑话内容，RadioGroup 里面则是各种不同的RadioButton单选按钮
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/expandButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收起评价"
+            />
+        <TextView
+            android:id="@+id/jokeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="这里将会是展示笑话内容的地方"
+            />
+
+    </LinearLayout>
+
+    <!--
+    Todo:彻底搞明白什么是"相对布局" Relative layout
+    下面是"单选组",里面用来一个很关键的属性"layout_below",这个正是Relative layout里面的东西
+    用于标明该组件是在"哪个id View控件"的下面
+    (都说了是"相对嘛"XD)
+    除此之外，这里还有个visibility属性，用于动态的控制"评价区"的显示和隐藏
+    因此只用一个layout布局文件就可以了，不需要开关都搞一个awa
+    -->
+    <RadioGroup
+        android:id="@+id/ratingRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:visibility="visible"
+        android:layout_below="@+id/linear">
+
+        <RadioButton
+            android:id="@+id/likeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text="笑嘻了" />
+        <RadioButton
+            android:id="@+id/dislikeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="烂炸了"
+            android:layout_marginLeft="60dp"
+            />
+    </RadioGroup>
+
+</RelativeLayout>
+
