@@ -74,6 +74,7 @@ public class AdvancedJokeList extends Activity  implements OnClickListener, OnKe
 		super.onCreate(savedInstanceState);
 
 		// TODO
+		// Let's do this!
 		initLayout();
 		
 		Resources resources = getResources();
