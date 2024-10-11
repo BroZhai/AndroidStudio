@@ -1,6 +1,7 @@
 package comp4342.android.lab3;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
 
 public class JokeView extends LinearLayout implements RadioGroup.OnCheckedChangeListener, View.OnClickListener{
 
@@ -66,6 +68,31 @@ public class JokeView extends LinearLayout implements RadioGroup.OnCheckedChange
 	 */
 	public void setJoke(Joke joke) {
 		// TODO
+		m_joke = joke; //m_joke接收一个Joke对象
+		m_vwJokeText.setText(m_joke.getJoke()); //调用Joke对象的getJoke()方法取得笑话文字内容，用于m_vwJokeText的Text展示中
+		//设置展示的字体大小和颜色
+		m_vwJokeText.setTextSize(23);
+		m_vwJokeText.setTextColor(getResources().getColor(R.color.text));
+
+		// 下面在干的活就是尝试获取"笑话本身"的评价，根据评价返回的值 设定 对应的单选按钮信息
+		// 注意，在新版的Java中，case 的条件必须是一个 "提前订好的"常量 (不能动态变化的那种)
+		switch (joke.getRating()) {
+			case Joke.UNRATED:
+				m_vwLikeGroup.clearCheck();
+				break;
+			case Joke.LIKE:
+				m_vwLikeButton.setChecked(true);
+				m_vwDislikeButton.setChecked(false);
+				break;
+			case Joke.DISLIKE:
+				m_vwLikeButton.setChecked(false);
+				m_vwDislikeButton.setChecked(true);
+				break;
+			// 别忘了case的最后还要加上一个default!
+			default:
+				break;
+		}
+
 	}
 
 	/**
@@ -74,8 +101,12 @@ public class JokeView extends LinearLayout implements RadioGroup.OnCheckedChange
 	 * 	- Shows the complete text of the joke. 
 	 *  - Brings the RadioGroup of rating Buttons back into view.
 	 */
-	private void expandJokeView() {
+	private void expandJokeView() { //这个方法是"折叠"笑话评价
 		// TODO
+		m_vwJokeText.setSingleLine(true); //Todo: 这里的setSinglelLine是个什么东西?
+		m_vwJokeText.setEllipsize(TextUtils.TruncateAt.valueOf("END")); // Todo: 这有是个啥??
+
+		m_vwExpandButton.setText(JokeView.EXPAND); // 这里的JokeView.EXPAND是一个定义好的常量("-")
 	}
 
 	/**
