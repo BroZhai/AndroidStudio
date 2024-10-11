@@ -101,12 +101,15 @@ public class JokeView extends LinearLayout implements RadioGroup.OnCheckedChange
 	 * 	- Shows the complete text of the joke. 
 	 *  - Brings the RadioGroup of rating Buttons back into view.
 	 */
-	private void expandJokeView() { //这个方法是"折叠"笑话评价
+	private void expandJokeView() { //这个方法是"展开"笑话评价
 		// TODO
-		m_vwJokeText.setSingleLine(true); //Todo: 这里的setSinglelLine是个什么东西?
-		m_vwJokeText.setEllipsize(TextUtils.TruncateAt.valueOf("END")); // Todo: 这有是个啥??
+		m_vwJokeText.setEllipsize(null);
+		m_vwJokeText.setSingleLine(false);
+		m_vwExpandButton.setText(JokeView.EXPAND); // "展开"状态时的按钮显示
+		m_vwLikeGroup.setVisibility(View.VISIBLE); // "展开"装填，RatioGroup即应为可见状态
+		m_vwJokeText.setPadding(1,1,1,16); // 这个好像看懂了，设置布局的"内边距" (左，上，右，下)
+		requestLayout();
 
-		m_vwExpandButton.setText(JokeView.EXPAND); // 这里的JokeView.EXPAND是一个定义好的常量("-")
 	}
 
 	/**
@@ -116,8 +119,13 @@ public class JokeView extends LinearLayout implements RadioGroup.OnCheckedChange
 	 *  - If the joke is longer than one line, it appends an ellipsis to the end. 
 	 *  - Removes the RadioGroup of rating Buttons from view.
 	 */
-	private void collapseJokeView() {
+	private void collapseJokeView() { //这个方法是"折叠"笑话评价
 		// TODO
+		m_vwJokeText.setSingleLine(true); //Todo: 这里的setSinglelLine是个什么东西?
+		m_vwJokeText.setEllipsize(TextUtils.TruncateAt.valueOf("END")); // Todo: 这有是个啥??
+		m_vwExpandButton.setText(JokeView.COLLAPSE); // 这里的JokeView.COLLAPSE是一个定好的常量("+") 表示"折叠状态"时的按钮文字
+		m_vwLikeGroup.setVisibility(View.GONE); //将 RatioGroup的可见性设置为"GONE" (不可见)
+		requestLayout(); //Todo: 搞明白这里的 requestLayout() 是用来干啥的 (好像是View内本身就有的一个方法)
 	}
 
 }
