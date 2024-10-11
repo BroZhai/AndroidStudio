@@ -128,7 +128,7 @@ public class JokeView extends LinearLayout implements RadioGroup.OnCheckedChange
 		requestLayout(); //Todo: 搞明白这里的 requestLayout() 是用来干啥的 (好像是View内本身就有的一个方法)
 	}
 
-	// 现在，我们来重写"监听事件"的onclick()方法
+	// 现在，我们来重写"监听事件"的onclick()方法 (implement View.OnclickListener)
 	public void onClick(View v){
 		// 里面实则是一个很简单的"展开or折叠"判断 (关键就在于第一行，按钮的值会先被赋给viewstate)
 		// 然后根据viewstate此时存的值去判断 是要执行"展开"还是"关闭操作"
@@ -139,5 +139,17 @@ public class JokeView extends LinearLayout implements RadioGroup.OnCheckedChange
 			collapseJokeView();
 		}
 	}
+
+	// 然后是单选框相关的监听器事件onCheckedChange() (implement RadioGroup.OnCheckedChangeListener)
+	public void onCheckedChange(RadioGroup rg, int checkedID){
+		// 上面参数中的checkedID是在 RadioButton在选中时  获取到其的id名称，并以此来判断是哪个Radio选项被选了
+		if(checkedID == m_vwLikeButton.getId()){ // "喜欢"按钮被选中，则设置对应 笑话的"后台评价"
+			m_joke.setRating(Joke.LIKE);
+		}
+		if(checkedID == m_vwDislikeButton.getId()){ // 同上，这里是"不喜欢"的
+			m_joke.setRating(Joke.DISLIKE);
+		}
+	}
+
 
 }
