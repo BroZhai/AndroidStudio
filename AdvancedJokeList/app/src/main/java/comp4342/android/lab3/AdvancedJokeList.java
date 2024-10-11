@@ -99,35 +99,15 @@ public class AdvancedJokeList extends Activity  implements OnClickListener, OnKe
 	 */
 	protected void initLayout() {
 		// TODO
-		m_arrJokeList = new ArrayList<Joke>();
-		
-		m_vwJokeLayout = new LinearLayout(getBaseContext());
-		m_vwJokeLayout.setOrientation(LinearLayout.VERTICAL);
+		// 这里"根据需求"删除了一大段原来的代码
+		setContentView(R.layout.advanced); //这里应用的是我们在layout里面新写的advanced.xml
+		// (直接去写布局文件了，而不是去像上面那样hardcode XD)
+		m_vwJokeLayout = (LinearLayout) findViewById(R.id.jokelayout); // 最上面已经声明过该项是一个Linear Layout对象了，直接通过ID找对应layout组件即可
+		//下面的同理，都是已经在advanced里面写好的
+		m_vwJokeEditText = (EditText) findViewById(R.id.newJokeEditText); //EditText控件
+		m_vwJokeButton = (Button) findViewById(R.id.addJokeButton); //Button按钮控件
 
-		ScrollView scrollView = new ScrollView(getBaseContext());
-		scrollView.addView(m_vwJokeLayout);
-
-		LinearLayout rootLayout = new LinearLayout(getBaseContext());
-		rootLayout.setOrientation(LinearLayout.VERTICAL);
-		
-		LinearLayout addJokeLayout = new LinearLayout(getBaseContext());
-		addJokeLayout.setOrientation(LinearLayout.HORIZONTAL);
-		
-		m_vwJokeButton = new Button(getBaseContext());
-		m_vwJokeButton.setText("Add Joke");
-		addJokeLayout.addView(m_vwJokeButton);
-
-		m_vwJokeEditText = new EditText(getBaseContext());
-		LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);	
-		m_vwJokeEditText.setLayoutParams(param);
-		addJokeLayout.addView(m_vwJokeEditText);
-
-		rootLayout.addView(addJokeLayout);
-		rootLayout.addView(scrollView);
-		
-		setContentView(R.layout.advanced);
+		m_arrJokeList = new ArrayList<Joke>(); //初始化笑话的"动态数组"
 	}
 
 	/**

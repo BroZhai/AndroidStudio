@@ -15,6 +15,7 @@ Note: You must use the following id's for this list of UI Components defined in
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/jokelayout"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
