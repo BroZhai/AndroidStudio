@@ -1,13 +1,15 @@
 package comp4342.android.lab3;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class JokeView extends View {
+public class JokeView extends LinearLayout implements RadioGroup.OnCheckedChangeListener, View.OnClickListener{
 
 	private Button m_vwExpandButton;
 	private RadioButton m_vwLikeButton;
@@ -30,7 +32,29 @@ public class JokeView extends View {
 	 */
 	public JokeView(Context context, Joke joke) {
 		 super(context);
-		// TODO
+		// TODO：搞明白这个LayoutInflater 又是个什么东东
+		LayoutInflater inflater = (LayoutInflater)
+				context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		inflater.inflate(R.layout.joke_view,this,true); //????
+
+		//下面就是对先前在joke_view.xml中各种控件的获取 (注意别忘了"(小括号类型转换)")
+		m_vwExpandButton = (Button) findViewById(R.id.expandButton);
+		m_vwJokeText = (TextView) findViewById(R.id.jokeTextView);
+
+		m_vwDislikeButton = (RadioButton) findViewById(R.id.dislikeButton);
+		m_vwLikeButton = (RadioButton) findViewById(R.id.likeButton);
+		m_vwLikeGroup = (RadioGroup) findViewById(R.id.ratingRadioGroup);
+
+		// 设置"喜欢"和"讨厌"按钮的字体颜色 (用colors.xml里面定义的name="text"项)
+		m_vwLikeButton.setTextColor(getResources().getColor(R.color.text));
+		m_vwDislikeButton.setTextColor(getResources().getColor(R.color.text));
+
+		//给"展开"按钮 和 "喜欢/不喜欢"按钮组RadioGroup 分别添加监听
+		m_vwExpandButton.setOnClickListener(this); //这里的this是...?
+		m_vwLikeGroup.setOnClickListener(this);
+
+		collapseJokeView(); // 这个方法会将笑话 设置成"折叠"状态
+
 	}
 
 	/**
