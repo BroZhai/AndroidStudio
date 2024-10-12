@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="light">#B2FFFF</color>
-    <color name="dark">#5a5a5a</color>
-    <color name="text">#FFFFFF</color> <!--这一项的颜色就是设置"文字"的颜色-->
+    <color name="dark">#FFFF37</color>
+    <color name="text">#000000</color> <!--这一项的颜色就是设置"文字"的颜色-->
 
 </resources>

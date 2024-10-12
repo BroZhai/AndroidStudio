@@ -98,7 +98,6 @@ public class AdvancedJokeList extends Activity  implements OnClickListener, OnKe
 	 * Layout for this Activity.
 	 */
 	protected void initLayout() {
-		// TODO
 		// 这里"根据需求"删除了一大段原来的代码
 		setContentView(R.layout.advanced); //这里应用的是我们在layout里面新写的advanced.xml
 		// (直接去写布局文件了，而不是去像上面那样hardcode XD)
