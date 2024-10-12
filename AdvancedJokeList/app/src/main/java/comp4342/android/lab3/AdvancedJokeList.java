@@ -134,14 +134,16 @@ public class AdvancedJokeList extends Activity  implements OnClickListener, OnKe
 
 		// 这里创建了一个JokeView对象，不仅仅是展示笑话内容本身，还有我们额外加进去的"折叠菜单"评价系统
 		JokeView jv = new JokeView(getBaseContext(),joke);
-		
+
+		//这里是让为了笑话的背景颜色交替显示，偶数行是浅色，奇数行是深色 (和之前一致)
 		if (m_arrJokeList.size()%2==0) {
             jv.setBackgroundColor(m_nLightColor);
         } else {
 			jv.setBackgroundColor(m_nDarkColor);
 		}
 		
-		m_vwJokeLayout.addView(textView);
+		m_vwJokeLayout.addView(jv); //这里的JokeView本身就是一个View对象，所以可以直接添加到Layout里面
+		// 因为它extends了LinearLayout，所以可以直接addView
 	}
 	
 	
