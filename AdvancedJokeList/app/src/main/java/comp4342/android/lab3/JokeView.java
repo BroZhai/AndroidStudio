@@ -140,9 +140,9 @@ public class JokeView extends LinearLayout implements RadioGroup.OnCheckedChange
 		}
 	}
 
-	// 然后是单选框相关的监听器事件onCheckedChange() (implement RadioGroup.OnCheckedChangeListener)
-	// Todo: 搞明白这里的 onCheckedChange()
-	public void onCheckedChange(RadioGroup rg, int checkedID){
+	// 然后是单选框相关的监听器事件onCheckedChanged() (implement RadioGroup.OnCheckedChangeListener)
+	// Todo: 搞明白这里的 onCheckedChanged()
+	public void  onCheckedChanged(RadioGroup rg, int checkedID){
 		// 上面参数中的checkedID是在 RadioButton在选中时  获取到其的id名称，并以此来判断是哪个Radio选项被选了
 		if(checkedID == m_vwLikeButton.getId()){ // "喜欢"按钮被选中，则设置对应 笑话的"后台评价"
 			m_joke.setRating(Joke.LIKE);
