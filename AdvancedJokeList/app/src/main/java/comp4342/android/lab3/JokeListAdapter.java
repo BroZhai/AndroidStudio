@@ -18,7 +18,7 @@ public class JokeListAdapter extends BaseAdapter {
 	/**
 	 * The dataset to which this JokeListAdapter is bound.
 	 */
-	private List<Joke> m_jokeList;
+	private List<Joke> m_jokeList; //这里的m_jokeList即为一个dataset
 
 	/**
 	 * The position in the dataset of the currently selected Joke.
@@ -64,27 +64,30 @@ public class JokeListAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public int getCount() { //返回dataset中的 元素个数
+	public int getCount() { //返回dataset(m_jokeList)中的 元素个数
 		// TODO Auto-generated method stub
-
-		return 0;
+		return m_jokeList.size();
 	}
 
 	@Override
 	public Object getItem(int position) { //从dataset中的特定位置position取得一个Joke对象
 		// TODO Auto-generated method stub
-		return null;
+		return m_jokeList.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) { //取得Joke对象的id (但是这里好像直接用的就是Joke对象的'位置'当id，真懒(￣▽￣") )
 		// TODO Auto-generated method stub
-		return 0;
+		//这里的position就是Joke对象的id, 我们直接返回这个position即可
+		return position;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) { //取得dataset中特定位置position的某个Joke的 "JokeView"对象
+		// 但是实际在这里实现的原理是: 先取得Joke对象, 然后用Joke的'笑话内容' 再创建一个JokeView对象进行返回
 		// TODO 搞明白最后面的"parent"参数是个什么东西
-		return null;
+		Joke tgtJoke = m_jokeList.get(position);
+		JokeView jv = new JokeView(m_context, tgtJoke); //使用取得的joke对象创建一个JokeView对象
+		return jv;
 	}
 }
