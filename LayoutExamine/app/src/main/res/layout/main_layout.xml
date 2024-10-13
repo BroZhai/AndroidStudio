@@ -2,18 +2,34 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <!--我们默认“根”的布局就是Linear Layout-->
     <LinearLayout
         android:id="@+id/rootLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="horizontal">
         <TextView
-            android:id="@+id/welcomeMsg"
+            android:id="@+id/Msg1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="欢迎来到各种妙妙布局教程!"
+            android:text="文字1"
             android:textSize="24sp"
+            android:layout_gravity="top"
+            />
+        <TextView
+            android:id="@+id/Msg2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="文字2"
+            android:textSize="24sp"
+            android:layout_gravity="center_vertical"
+            />
+        <Button
+            android:id="@+id/Btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我是按钮1"
+            android:layout_gravity="bottom"
             />
     </LinearLayout>
 
