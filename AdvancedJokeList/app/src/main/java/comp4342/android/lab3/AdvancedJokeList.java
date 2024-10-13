@@ -15,6 +15,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import comp4342.android.lab3.Joke;
@@ -35,12 +36,12 @@ public class AdvancedJokeList extends Activity  implements OnClickListener, OnKe
 	/**
 	 * Adapter used to bind an AdapterView to List of Jokes.
 	 */
-	protected JokeListAdapter m_jokeAdapter;
+	protected JokeListAdapter m_jokeAdapter; //这就是一个JokeAdapter对象!
 
 	/**
 	 * ViewGroup used for maintaining a list of Views that each display Jokes.
 	 **/
-	protected LinearLayout m_vwJokeLayout;
+	protected LinearLayout m_vwJokeLayout; //这里原本的对象时LinearLayout，在后面改成了ListView (对应的advanced.xml里面先改了)
 
 	/**
 	 * EditText used for entering text for a new Joke to be added to
@@ -76,6 +77,12 @@ public class AdvancedJokeList extends Activity  implements OnClickListener, OnKe
 		// TODO
 		// Let's do this!
 		initLayout();
+
+		//这里引入我们在JokeListAdapter中定义的m_arrJokeList dataset，准备当成一个数据库用
+		//TODO: 搞明白JokeListAdapter()的构造函数
+		m_jokeAdapter = new JokeListAdapter(getBaseContext(),m_arrJokeList);
+		//m_vwJokeLayout.setAdapter(m_jokeAdapter); //这里是把JokeAdapter对象传给JokeLayout对象，让它将"笑话内容"显示出来出来
+
 		
 		Resources resources = getResources();
 		
@@ -102,6 +109,9 @@ public class AdvancedJokeList extends Activity  implements OnClickListener, OnKe
 		setContentView(R.layout.advanced); //这里应用的是我们在layout里面新写的advanced.xml
 		// (直接去写布局文件了，而不是去像上面那样hardcode XD)
 		m_vwJokeLayout = (LinearLayout) findViewById(R.id.jokelayout); // 最上面已经声明过该项是一个Linear Layout对象了，直接通过ID找对应layout组件即可
+
+		//m_vwJokeLayout = (ListView) findViewById(R.id.jokelayout); //在后面的开发我们把原有的LinearLayout改成了ListView
+
 		//下面的同理，都是已经在advanced里面写好的
 		m_vwJokeEditText = (EditText) findViewById(R.id.newJokeEditText); //EditText控件
 		m_vwJokeButton = (Button) findViewById(R.id.addJokeButton); //Button按钮控件
@@ -128,8 +138,12 @@ public class AdvancedJokeList extends Activity  implements OnClickListener, OnKe
 	 *            The Joke to add to list of Jokes.
 	 */
 	protected void addJoke(Joke joke) {
-		// TODO
+		// TODO 搞明白这里Adapter.notifyDataSetChanged()的用法
 		m_arrJokeList.add(joke);
+		// m_jokeAdapter.notifyDataSetChanged(); //这里是通知Adapter数据集发生了变化，需要重新刷新一下
+
+
+		// 下面是原来的LinearLayout加笑话的代码，上面的则是用动态dataset的
 
 		// 这里创建了一个JokeView对象，不仅仅是展示笑话内容本身，还有我们额外加进去的"折叠菜单"评价系统
 		JokeView jv = new JokeView(getBaseContext(),joke);
@@ -144,6 +158,8 @@ public class AdvancedJokeList extends Activity  implements OnClickListener, OnKe
 		
 		m_vwJokeLayout.addView(jv); //这里的JokeView本身就是一个View对象，所以可以直接添加到Layout里面
 		// 因为它extends了LinearLayout，所以可以直接addView
+
+
 	}
 	
 	

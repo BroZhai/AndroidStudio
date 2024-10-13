@@ -40,12 +40,15 @@ Note: You must use the following id's for this list of UI Components defined in
             />
     </LinearLayout>
 
-    <LinearLayout
+    <!--下面的笑话展示去一开始用的是LinearLayout，
+    但是开发到后期换成ListView了，它可以更好的处理"动态列表"-->
+    -->
+    <ListView
         android:id="@+id/jokeListViewGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    </LinearLayout>
+    </ListView>
 
 </LinearLayout>
