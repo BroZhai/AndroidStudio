@@ -8,29 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
-        <TextView
-            android:id="@+id/Msg1"
-            android:layout_width="wrap_content"
+        <EditText
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="文字1"
-            android:textSize="24sp"
-            android:layout_gravity="top"
-            />
-        <TextView
-            android:id="@+id/Msg2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="文字2"
-            android:textSize="24sp"
-            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:hint="我是自动分配的width宽度哦"
             />
         <Button
-            android:id="@+id/Btn1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="我是按钮1"
-            android:layout_gravity="bottom"
+            android:text="按钮"
             />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
