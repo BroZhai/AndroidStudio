@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
             return fruit[i];
         }
 
-        @Override
+        @Overridex
         public long getItemId(int i) { // 获取每一个item的唯一标识符"id" ()
             return i;
         }
