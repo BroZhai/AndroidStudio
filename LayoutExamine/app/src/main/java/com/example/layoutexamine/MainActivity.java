@@ -36,7 +36,6 @@ public class MainActivity extends Activity {
         ListView lv = (ListView) findViewById(R.id.list_view);
         lv.setAdapter(adapter); // 将视图区的ListView和"数据包"Adapter绑定起来
 
-
     }
 
 
