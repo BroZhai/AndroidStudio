@@ -1,12 +1,16 @@
 package com.example.layoutexamine;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter; // 要extends BaseAdapter，就要现在这里导入
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 // Activity 里面的 name 就指向了这里的 MainActivity.class 作为处理逻辑
 // 我们就在对应的java目录下新建这个类
@@ -32,11 +36,34 @@ public class MainActivity extends Activity {
         因为今天没多少时间了，所以这里就先用现成的ArrayAdapter先顶着，哪天再有空了再回来看看怎么自己去实现
         */
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, fruit);
-        // 后面传入的三个东西分别是：'当前活动'对象、'布局文件'(上面的simple_list_item_1为一个"内置的")、传递"数据源"
-        ListView lv = (ListView) findViewById(R.id.list_view);
-        lv.setAdapter(adapter); // 将视图区的ListView和"数据包"Adapter绑定起来
+        // 后面传入的三个东西分别是：'当前活动'对象、'布局文件'(上面的simple_list_item_1为一个"内置的")传递"数据源"
 
+//        ListView lv = (ListView) findViewById(R.id.list_view);
+//        lv.setAdapter(adapter); // 将视图区的ListView和"数据包"Adapter绑定起来
     }
+    // 突然插入一个小插曲，学一下有关AlertDialog 弹窗对话框的使用
+    public void showAltDiaglog(View view) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+        dialog.setTitle("这是对话框标题");
+        dialog.setMessage("这里是对话框的内容");
+        dialog.setCancelable(false); // 设置是否可以通过点击对话框外部取消对话框
+        dialog.setPositiveButton("Positive按钮", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // 点击"OK"按钮后的操作
+                Toast.makeText(MainActivity.this, "你点击了Positive按钮", Toast.LENGTH_SHORT).show();
+            }
+        });
+        dialog.setNegativeButton("Negative按钮", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // 点击"Cancel"按钮后的操作
+                Toast.makeText(MainActivity.this, "你点击了Negative按钮", Toast.LENGTH_SHORT).show();
+            }
+        });
+        dialog.show();
+    }
+
 
 
     // 以下的部分的内容为自己尝试去实现的一个Adapter (继承自BaseAdapter)
