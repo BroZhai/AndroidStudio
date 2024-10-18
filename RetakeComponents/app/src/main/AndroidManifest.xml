@@ -14,10 +14,10 @@
         tools:targetApi="31">
         <activity
             android:name=".SecondActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".firstActivity"
-            android:exported="false" />
+            android:exported="true" />
     </application>
 
 </manifest>

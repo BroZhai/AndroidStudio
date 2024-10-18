@@ -1,6 +1,8 @@
 package com.example.retakecomponents;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,21 @@ public class firstActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+    }
+
+    // 按钮的onclick就会触发下面的 jumpSec 方法
+    public void jumpSec(View view){
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivity(intent);
+    }
+
+    // 再来一个"带参数"的跳转
+    public void jumpSecWithPara(View view){
+        Intent intent = new Intent(this, SecondActivity.class);
+        intent.putExtra("pokemon", "仙子伊布");
+        intent.putExtra("lv",23);
+        intent.putExtra("isShiny", false);
+        startActivity(intent);
     }
 }
