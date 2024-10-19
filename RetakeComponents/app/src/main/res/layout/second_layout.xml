@@ -11,8 +11,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="700dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -24,8 +23,7 @@
             android:text="这里是SecondActivity"
             android:textColor="@color/white"
             android:textSize="23dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -92,7 +90,90 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dxGroup"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.014"
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/dxDisplay">
+
+        <CheckBox
+            android:id="@+id/flareon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="火布" />
+
+        <CheckBox
+            android:id="@+id/vaporeon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="水布" />
+
+        <CheckBox
+            android:id="@+id/leafeon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="叶布" />
+
+        <CheckBox
+            android:id="@+id/glaceon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="冰布" />
+
+        <CheckBox
+            android:id="@+id/sylveon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="仙布" />
+
+        <CheckBox
+            android:id="@+id/umbreon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="月布" />
+
+        <CheckBox
+            android:id="@+id/espeon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="光" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/checkEevee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:text="检查布布"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkEevee">
+
+        <TextView
+            android:id="@+id/eeveeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="多选默认信息"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkEevee"
+            />
+    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
@@ -101,7 +182,9 @@
         android:onClick="jumpBack"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
