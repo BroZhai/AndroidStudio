@@ -1,6 +1,7 @@
 package com.example.retakecomponents;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -58,6 +59,10 @@ public class SecondActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void jumpBack(View view){
+        finish();
     }
 
 

@@ -94,5 +94,14 @@
         app:layout_constraintTop_toBottomOf="@+id/dxGroup"
         app:layout_constraintVertical_bias="0.041" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="结束(关闭)该活动"
+        android:onClick="jumpBack"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
