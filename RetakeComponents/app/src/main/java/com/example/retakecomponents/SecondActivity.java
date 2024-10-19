@@ -123,6 +123,7 @@ public class SecondActivity extends AppCompatActivity {
         finish();
     }
 
+    // 下面的代码对应按钮 弹出一个 "简单对话框"
     public void simpleDialog(View view){
         // 注意一下一些列的操作都没有";"冒号，原则上全是"连在一起"的，竖着写只是为了好看
         new AlertDialog.Builder(this)
@@ -144,5 +145,36 @@ public class SecondActivity extends AppCompatActivity {
         .create().show(); //创建这个AlertDialog.Builder对象 并进行展示
     }
 
+    private String[] options = {"小", "中", "大"};
+    private int[] values = {10,23,35};
 
+    private int index;
+
+    public void ratioDialog(View view) {
+        TextView paraDisplay = findViewById(R.id.paraDisplay);
+        new AlertDialog.Builder(this)
+        .setCancelable(false)
+        .setTitle("这是一个单选对话框")
+        .setSingleChoiceItems(options, 1, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                //在单选框的情况下，这里的i是"选中的选项的index"
+                  index = i;
+                }
+            })
+        .setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                        paraDisplay.setTextSize(values[index]);
+                        Toast.makeText(SecondActivity.this,"已将字体大小设置为"+values[index],Toast.LENGTH_SHORT).show();
+                    }
+                })
+        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(SecondActivity.this,"你取消了操作",Toast.LENGTH_SHORT).show();
+                    }
+                })
+        .create().show();
+    }
 }
