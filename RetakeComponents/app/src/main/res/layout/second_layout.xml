@@ -10,18 +10,23 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="700dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="match_parent"
             android:background="#50CDF4"
             android:gravity="center"
             android:text="这里是SecondActivity"
             android:textColor="@color/white"
             android:textSize="23dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
+
     </LinearLayout>
 
     <TextView
@@ -36,6 +41,58 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.681" />
+        app:layout_constraintVertical_bias="0.024"
+        />
+
+
+    <RadioGroup
+        android:id="@+id/dxGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paraDisplay"
+        app:layout_constraintVertical_bias="0.048"
+        tools:layout_editor_absoluteX="0dp">
+
+        <RadioButton
+            android:id="@+id/dx1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小粉狐"
+            />
+
+        <RadioButton
+            android:id="@+id/dx2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="小蓝狗"
+            />
+
+        <RadioButton
+            android:id="@+id/dx3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="小黑猫"
+            />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/dxDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="单选的默认信息"
+        android:textSize="18dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dxGroup"
+        app:layout_constraintVertical_bias="0.041" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
