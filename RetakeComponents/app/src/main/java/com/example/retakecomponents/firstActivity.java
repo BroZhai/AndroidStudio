@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -68,10 +69,11 @@ public class firstActivity extends AppCompatActivity implements View.OnClickList
 
     // 再来一个"带参数"的跳转
     public void jumpSecWithPara(View view){
+        //先去获取文字输入框的内容 (先找对象，后取内容)
+        EditText input = findViewById(R.id.editMe);
+        String inputdata = input.getText().toString();
         Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra("pokemon", "仙子伊布");
-        intent.putExtra("lv",23);
-        intent.putExtra("isShiny", false);
+        intent.putExtra("inputFromA1",inputdata);
         startActivity(intent);
     }
 

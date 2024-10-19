@@ -1,6 +1,7 @@
 package com.example.retakecomponents;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,8 @@ public class SecondActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        String name = getIntent().getStringExtra("pokemon");
+        String receiveStr = getIntent().getStringExtra("inputFromA1");
+        TextView tv = findViewById(R.id.paraDisplay);
+        tv.setText("从mainActivity传过来的信息: "+receiveStr);
     }
 }
