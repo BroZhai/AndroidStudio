@@ -55,7 +55,7 @@ public class firstActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) { // 这个适用于 "多个按钮"监听 的情况
         switch (view.getId()){
             case R.id.btn3:
-                Toast.makeText(this,"按钮3设置了implements View.OnClickListener监听器" +
+                Toast.makeText(this,"按钮3为class设置了监听器(并绑定)" +
                         "，重写了onClick方法哦",Toast.LENGTH_SHORT).show();
                 break;
         }
