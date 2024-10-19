@@ -1,6 +1,7 @@
 package com.example.retakecomponents;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -128,8 +129,18 @@ public class SecondActivity extends AppCompatActivity {
         .setCancelable(true)
         .setTitle("这是对话框标题")
         .setMessage("我是对话框里的内容")
-        .setNegativeButton("取消",null)
-        .setPositiveButton("确认",null)
+        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(SecondActivity.this,"你点击了取消按钮",Toast.LENGTH_SHORT).show();
+            }
+        })
+        .setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(SecondActivity.this,"我是确认按钮",Toast.LENGTH_SHORT).show();
+            }
+        })
         .create().show(); //创建这个AlertDialog.Builder对象 并进行展示
     }
 
