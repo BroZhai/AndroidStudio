@@ -97,7 +97,6 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="30dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/dxDisplay">
@@ -161,7 +160,8 @@
         android:orientation="horizontal"
         android:gravity="center_horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkEevee">
+        app:layout_constraintTop_toBottomOf="@+id/checkEevee"
+        >
 
         <TextView
             android:id="@+id/eeveeDisplay"
@@ -176,15 +176,26 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/simpleDialiog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="结束(关闭)该活动"
-        android:onClick="jumpBack"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="116dp"
+        android:text="弹出简单对话框"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:onClick="simpleDialog"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="40dp"
+        android:onClick="jumpBack"
+        android:text="结束(关闭)该活动"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

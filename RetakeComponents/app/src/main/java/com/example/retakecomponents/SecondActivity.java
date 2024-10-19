@@ -1,5 +1,6 @@
 package com.example.retakecomponents;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -121,6 +122,16 @@ public class SecondActivity extends AppCompatActivity {
         finish();
     }
 
+    public void simpleDialog(View view){
+        // 注意一下一些列的操作都没有";"冒号，原则上全是"连在一起"的，竖着写只是为了好看
+        new AlertDialog.Builder(this)
+        .setCancelable(true)
+        .setTitle("这是对话框标题")
+        .setMessage("我是对话框里的内容")
+        .setNegativeButton("取消",null)
+        .setPositiveButton("确认",null)
+        .create().show(); //创建这个AlertDialog.Builder对象 并进行展示
+    }
 
 
 }
