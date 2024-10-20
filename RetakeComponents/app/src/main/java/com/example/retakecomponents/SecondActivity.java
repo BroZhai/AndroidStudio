@@ -145,10 +145,13 @@ public class SecondActivity extends AppCompatActivity {
         .create().show(); //创建这个AlertDialog.Builder对象 并进行展示
     }
 
+    /* 下面的代码对应按钮 弹出一个 "单选"对话框 */
+
+    // 提前用数组定义好 "选项" 和 "对应的值"
     private String[] options = {"小", "中", "大"};
     private int[] values = {10,23,35};
 
-    private int index;
+    private int index; // 存储单选"选中的下标"
 
     public void ratioDialog(View view) {
         TextView paraDisplay = findViewById(R.id.paraDisplay);
@@ -176,5 +179,49 @@ public class SecondActivity extends AppCompatActivity {
                     }
                 })
         .create().show();
+    }
+
+    /* 下面的代码对应按钮 弹出一个 "多选"对话框 */
+
+    // 提前用数组定义好 "选项" 和 "对应的值"，但"对应的值"将会是布尔 (对应多选的isChecked()属性)
+    private String[] options2 = {"Cirno","Omori","Niko","YumiNikki","PikuNiku","HollowKnight"};
+    private boolean[] checkedValues = {false,false,false,false,false,false};
+
+    public void checkboxDialog(View view) {
+        AlertDialog.Builder checkboxDg =  new AlertDialog.Builder(this);
+        checkboxDg.setCancelable(false);
+        checkboxDg.setTitle("勾选你的旅行伙伴们!");
+        checkboxDg.setMultiChoiceItems(options2, checkedValues, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+                checkedValues[i] = b;
+            }
+        });
+        checkboxDg.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // 此时创建一个"动态数组"ArrayList, 用来动态的展示"选中true项的内容" (输出列表)
+                ArrayList<String> friendList = new ArrayList<>();
+                for(int j = 0; j < checkedValues.length ; j++){ // 遍历checkedValues数组, 看看哪些为true的，加到"输出列表"中
+                    if(checkedValues[j]==true){
+                        friendList.add(options2[j]);
+                    }
+                }
+                if(friendList.isEmpty()){
+                    Toast.makeText(SecondActivity.this, "你没有选择任何伙伴QAQ", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Toast.makeText(SecondActivity.this, "你的伙伴有: "+ friendList.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+        checkboxDg.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(SecondActivity.this, "你取消了选择伙伴", Toast.LENGTH_LONG).show();
+            }
+        });
+
+       AlertDialog formalCheckbox = checkboxDg.create();
+       formalCheckbox.show();
     }
 }
