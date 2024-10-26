@@ -224,5 +224,5 @@ public class SecondActivity extends AppCompatActivity {
        AlertDialog formalCheckbox = checkboxDg.create();
        formalCheckbox.show();
     }
-    //
+
 }
