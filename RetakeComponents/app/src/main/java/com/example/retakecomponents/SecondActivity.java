@@ -220,7 +220,7 @@ public class SecondActivity extends AppCompatActivity {
                 Toast.makeText(SecondActivity.this, "你取消了选择伙伴", Toast.LENGTH_LONG).show();
             }
         });
-// group assignment
+// revision for system mid-term
        AlertDialog formalCheckbox = checkboxDg.create();
        formalCheckbox.show();
     }
