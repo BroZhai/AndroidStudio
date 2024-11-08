@@ -25,6 +25,10 @@
             android:name=".SecondActivity"
             android:exported="true" />
 
+        <activity
+            android:name=".ThirdActivity"
+            android:exported="true" />
+
     </application>
 
 </manifest>

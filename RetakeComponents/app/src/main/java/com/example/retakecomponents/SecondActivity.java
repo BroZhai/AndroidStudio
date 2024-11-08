@@ -2,6 +2,7 @@ package com.example.retakecomponents;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -122,6 +123,10 @@ public class SecondActivity extends AppCompatActivity {
     public void jumpBack(View view){
         finish();
     }
+    public void jumpA3(View view){
+        Intent intent = new Intent(this, ThirdActivity.class);
+        startActivity(intent);
+    }
 
     // 下面的代码对应按钮 弹出一个 "简单对话框"
     public void simpleDialog(View view){
@@ -220,7 +225,7 @@ public class SecondActivity extends AppCompatActivity {
                 Toast.makeText(SecondActivity.this, "你取消了选择伙伴", Toast.LENGTH_LONG).show();
             }
         });
-// Prepare
+
        AlertDialog formalCheckbox = checkboxDg.create();
        formalCheckbox.show();
     }
