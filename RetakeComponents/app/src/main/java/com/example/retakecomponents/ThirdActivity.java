@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 public class ThirdActivity extends Activity {
 
-    private String[] titles = {"Mp3","电子词典","GPRS通信设备","mp4","台式电脑","GPS定位仪","声呐雷达"};
-    private String[] prices = {"100元","80元","230元","120元","2300元","333元","9999元"};
+    private String[] titles = {"Mp3","电子词典","GPRS通信设备","mp4","台式电脑","GPS定位仪","声呐雷达","核能手电"};
+    private String[] prices = {"100元","80元","230元","120元","2300元","333元","9999元","Undefinded"};
 
     protected void onCreate(Bundle savedInstanceState){
         // 复习一下'新建Activity'，好久没动了QAQ...
