@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
+         <!--商品图片，这里只放个空的框架，懒得填素材，统一用'仙布'代替了-->
         <ImageView
             android:id="@+id/item_image"
             android:layout_width="120dp"
