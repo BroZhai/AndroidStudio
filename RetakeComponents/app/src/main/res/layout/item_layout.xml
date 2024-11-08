@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 这个布局文件就是用于设置'listview'里面每个 item 的'展示样式'用的 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="120dp"
+            android:layout_height="90dp"
+            android:src="@drawable/sylveon"
+            android:layout_centerVertical="true"
+             />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/item_image"
+            android:layout_centerVertical="true">
+
+                <!--商品名称-->
+                <TextView
+                    android:id="@+id/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品名称"
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    />
+
+               <!--"价格"俩字，位于"商品名称"下方-->
+               <TextView
+                   android:id="@+id/item_priceLable"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="价格:"
+                   android:textSize="20dp"
+                   android:textColor="#000000"
+                   android:layout_below="@id/item_title"
+                   />
+
+                <TextView
+                    android:id="@+id/item_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="666"
+                    android:textSize="20dp"
+                    android:textColor="#FF8F03"
+                    android:layout_toRightOf="@id/item_priceLable"
+                    android:layout_below="@id/item_title"
+                    />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>
