@@ -92,9 +92,9 @@ public class ThirdActivity extends Activity {
                 holder = new MyViewHolder();
                 holder.name = view.findViewById(R.id.item_title);
                 holder.price = view.findViewById(R.id.item_price);
-                view.setTag(holder);
+                view.setTag(holder); // 这里的setTag()方法就是 给这个view对象'打自定义标签'
             }else{
-                holder = (MyViewHolder) view.getTag();
+                holder = (MyViewHolder) view.getTag(); // 这里通过上面打的tag 取得对应的'view对象'
             }
 
             //3. 根据"原数据"设置各个控件的'展示数据'
