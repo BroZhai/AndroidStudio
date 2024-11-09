@@ -1,6 +1,7 @@
 package com.example.retakecomponents;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -52,9 +53,6 @@ public class ThirdActivity extends Activity {
             }
         });
     }
-
-
-
 
 
     // 准备一个'数据中间容器' Adapter (介于前台 和 后台的'中间商', 这里直接用了最基础的BaseAdapter)
@@ -133,5 +131,11 @@ public class ThirdActivity extends Activity {
     // 跳回Activity2的方法
     public void jumpBack(View view){
         finish();
+    }
+
+    // 去到Activity4的方法
+    public void jumpFourth(View view) {
+        Intent fourth = new Intent(ThirdActivity.this, FourthActivity.class);
+        startActivity(fourth);
     }
 }
