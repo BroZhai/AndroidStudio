@@ -41,6 +41,16 @@ public class ThirdActivity extends Activity {
                 Toast.makeText(ThirdActivity.this, "你点击了"+titles[i]+" 价格:" + prices[i],Toast.LENGTH_SHORT).show();
             }
         });
+
+        // item的'长按监听'
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(ThirdActivity.this, "你长按选择了: "+ titles[i], Toast.LENGTH_LONG).show();
+                // 注意重写的这个'长按监听'方法 返回的是一个布尔值
+                return true;
+            }
+        });
     }
 
 
