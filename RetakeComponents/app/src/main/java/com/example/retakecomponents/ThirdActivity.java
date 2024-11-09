@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,6 +33,14 @@ public class ThirdActivity extends Activity {
         ListView lv = findViewById(R.id.dpListView);
         MyAdapter createdAdapter = new MyAdapter();
         lv.setAdapter(createdAdapter);
+
+        // 为listView里面的item添加'短按监听'事件
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(ThirdActivity.this, "你点击了"+titles[i]+" 价格:" + prices[i],Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
