@@ -7,14 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".FourthActivity">
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/fourthTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#50CDF4"
@@ -24,6 +24,17 @@
             android:textSize="23dp"
             android:textStyle="bold" />
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="680dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout4">
+            <!--这下面的奇怪的"androidx.xxx"就是我们的RecyclerView啦-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <Button
