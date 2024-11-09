@@ -3,6 +3,7 @@ package com.example.retakecomponents;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,8 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class FourthActivity extends AppCompatActivity {
-
+public class FourthActivity extends AppCompatActivity implements ItemClickListener{
 
 
     // 准备'原数据'
@@ -47,12 +47,17 @@ public class FourthActivity extends AppCompatActivity {
         // 应用Adapter
         EeveeAdapter adp = new EeveeAdapter();
         rv.setAdapter(adp);
-
     }
+
 
     // 准备RecyclerView的Adapter (需继承自RecyclerView.Adapter)
     // 后面还要传入一个泛型 (将我们自定的'ViewHolder'传进去)
-    class EeveeAdapter extends RecyclerView.Adapter<EeveeAdapter.ViewHolder>{
+
+    class EeveeAdapter extends RecyclerView.Adapter<EeveeAdapter.ViewHolder> {
+
+        // 定义'监听事件'的接口对象
+        private ItemClickListener listener;
+
 
         @NonNull
         @Override
@@ -71,6 +76,17 @@ public class FourthActivity extends AppCompatActivity {
             holder.eeveeName.setText(eeveeFamily[position]);
             holder.eeveeLv.setText(String.valueOf(levels[position]));
 
+            // Tips: 因为这个onBindViewHolder能获取到'item的下标位置'position，我们便可以在这里将这个position传出去
+            // Todo: 好像被网上的教程给误导了，这里直接在holder.itemView上面直接上监听器就能实现我想要的效果，并不需要把东西往外面传...(明天继续研究
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(FourthActivity.this,"你点击了: "+eeveeFamily[position],Toast.LENGTH_SHORT).show();
+                    // 调用接口里面定义的方法(通过上面的定义的listener对象)，将position传出去[]
+//                    listener.itemOnclick(position);
+                }
+            });
+
         }
 
         @Override
@@ -79,9 +95,10 @@ public class FourthActivity extends AppCompatActivity {
             return eeveeFamily.length;
         }
 
-        // 在该Adapter里面同时创建ViewHolder类 (缓存'划出视野'item)
-        class ViewHolder extends RecyclerView.ViewHolder{
-            // 在这里定义该Viewholder(item的'要修改现实'的属性)
+        // 在该Adapter里面同时创建ViewHolder类 (缓存'划出视野'的item)
+        // Tips: 如果我们想要 ViewHolder里面的内容被'点击监听'，那么就要让这个类去实现View.OnClickListener
+        class ViewHolder extends RecyclerView.ViewHolder {
+            // 在这里定义该ViewHolder(item的'要修改现实'的属性)
             ImageView eeveeImage;
             TextView eeveeName;
             TextView eeveeLv;
@@ -90,8 +107,17 @@ public class FourthActivity extends AppCompatActivity {
                 eeveeImage = itemView.findViewById(R.id.eevee_image);
                 eeveeName = itemView.findViewById(R.id.eevee_name);
                 eeveeLv = itemView.findViewById(R.id.eevee_level);
+
+
             }
         }
+    }
+
+    // 在RecyclerView中实现按钮监听'稍为复杂'，看了一堆教程没搞明白，先抄着，在一点点理解(详细看ItemClickListener接口)
+    @Override
+    public void itemOnclick(int position){
+        // 这里就在实现接口里面的方法，对应的就是我们'成功监听'后的操作
+        Toast.makeText(FourthActivity.this, "你点击了"+ eeveeFamily[position], Toast.LENGTH_SHORT);
     }
 
     // 跳回Activity3
