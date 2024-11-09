@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--这个是个展示'伊布列表'的RecyclerView用的布局文件-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+         <!--商品图片，这里只放个空的框架，懒得填素材，统一用'仙布'代替了-->
+        <ImageView
+            android:id="@+id/eevee_image"
+            android:layout_width="120dp"
+            android:layout_height="90dp"
+            android:src="@drawable/sylveon"
+            android:layout_centerVertical="true"
+             />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/eevee_image"
+            android:layout_centerVertical="true">
+
+                <!--伊布名称-->
+                <TextView
+                    android:id="@+id/eevee_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="伊布名称"
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    />
+
+               <!--"等级"俩字，位于"伊布名称"下方-->
+               <TextView
+                   android:id="@+id/lvDisplay"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="等级:"
+                   android:textSize="20dp"
+                   android:textColor="#000000"
+                   android:layout_below="@id/eevee_name"
+                   />
+
+                <TextView
+                    android:id="@+id/eevee_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="666"
+                    android:textSize="20dp"
+                    android:textColor="#225DF4"
+                    android:layout_toRightOf="@id/lvDisplay"
+                    android:layout_below="@id/eevee_name"
+                    />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>
