@@ -102,7 +102,6 @@ public class ThirdActivity extends Activity {
         }*/
 
         //EXTRA: 创建一个viewHolder类，这个类专门对划出屏幕的item进行缓存，从而优化ListView性能
-        // TODO: 搞明白这里view对象的setTag()和getTag()方法
         public View getView(int i, View view, ViewGroup viewGroup) {
             MyViewHolder holder;
             if(view == null){
