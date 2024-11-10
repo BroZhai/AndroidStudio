@@ -55,10 +55,6 @@ public class FourthActivity extends AppCompatActivity implements ItemClickListen
 
     class EeveeAdapter extends RecyclerView.Adapter<EeveeAdapter.ViewHolder> {
 
-        // 定义'监听事件'的接口对象
-        private ItemClickListener listener;
-
-
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
