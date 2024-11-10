@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class FourthActivity extends AppCompatActivity implements ItemClickListener{
+public class FourthActivity extends AppCompatActivity{
 
 
     // 准备'原数据'
@@ -60,7 +60,8 @@ public class FourthActivity extends AppCompatActivity implements ItemClickListen
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             // 创建ViewHolder(应用单个item的'布局样式') [注意用的是R.layout.xxx]
             View item_view = View.inflate(FourthActivity.this,R.layout.eevee_layout,null);
-            // 通过上面的item_view对象，创建一个ViewHolder对象 (见下面ViewHolder的构造函数
+            // 通过上面的item_view对象，创建一个ViewHolder class对象 (见下面ViewHolder的构造函数
+            // 这里的ViewHolder 就是我们传入的'泛型'
             ViewHolder vh = new ViewHolder(item_view);
             return vh;
         }
@@ -91,7 +92,6 @@ public class FourthActivity extends AppCompatActivity implements ItemClickListen
         }
 
         // 在该Adapter里面同时创建ViewHolder类 (缓存'划出视野'的item)
-        // Tips: 如果我们想要 ViewHolder里面的内容被'点击监听'，那么就要让这个类去实现View.OnClickListener
         class ViewHolder extends RecyclerView.ViewHolder {
             // 在这里定义该ViewHolder(item的'要修改现实'的属性)
             ImageView eeveeImage;
@@ -102,8 +102,6 @@ public class FourthActivity extends AppCompatActivity implements ItemClickListen
                 eeveeImage = itemView.findViewById(R.id.eevee_image);
                 eeveeName = itemView.findViewById(R.id.eevee_name);
                 eeveeLv = itemView.findViewById(R.id.eevee_level);
-
-
             }
         }
     }
