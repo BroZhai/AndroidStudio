@@ -76,8 +76,7 @@ public class FourthActivity extends AppCompatActivity implements ItemClickListen
             holder.eeveeName.setText(eeveeFamily[position]);
             holder.eeveeLv.setText(String.valueOf(levels[position]));
 
-            // Tips: 因为这个onBindViewHolder能获取到'item的下标位置'position，我们便可以在这里将这个position传出去
-            // Todo: 好像被网上的教程给误导了，这里直接在holder.itemView上面直接上监听器就能实现我想要的效果，并不需要把东西往外面传...(明天继续研究
+            // 如果要实现对item事件的'点击监听'，参考一下方式就好了
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -113,12 +112,6 @@ public class FourthActivity extends AppCompatActivity implements ItemClickListen
         }
     }
 
-    // 在RecyclerView中实现按钮监听'稍为复杂'，看了一堆教程没搞明白，先抄着，在一点点理解(详细看ItemClickListener接口)
-    @Override
-    public void itemOnclick(int position){
-        // 这里就在实现接口里面的方法，对应的就是我们'成功监听'后的操作
-        Toast.makeText(FourthActivity.this, "你点击了"+ eeveeFamily[position], Toast.LENGTH_SHORT);
-    }
 
     // 跳回Activity3
     public void jumpBack(View view){
