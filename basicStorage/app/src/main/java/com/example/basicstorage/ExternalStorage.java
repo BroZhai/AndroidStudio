@@ -37,13 +37,13 @@ public class ExternalStorage extends AppCompatActivity {
         });
 
         // Request permissions
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        /*if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
-        }
+        }*/
 
     }
 
-    @Override
+    /*@Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_CODE) {
@@ -53,7 +53,7 @@ public class ExternalStorage extends AppCompatActivity {
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
             }
         }
-    }
+    }*/
 
     public void outterWrite(View view) throws IOException {
         // 向外部存储写入数据
@@ -74,7 +74,7 @@ public class ExternalStorage extends AppCompatActivity {
         String state = Environment.getExternalStorageState();
         if(state.equals(Environment.MEDIA_MOUNTED)){ // 外部存储可用
             File path = getExternalFilesDir(null); // 获取外部存储的目录
-            File file = new File(path, "external.txt");  // 创建一个'接收文件对象'
+            File file = new File(path, "external.txt");  // 根据存储的路径和文件名 创建对应的"文件对象"，用于接下来的文件读取
 
             // 读取数据('文件对象'的文件流FileInputStream)
             FileInputStream fin = new FileInputStream(file);
