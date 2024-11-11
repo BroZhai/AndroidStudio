@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void reg(View view) throws URISyntaxException {
 //        start();
-        FrontendAPIProvider client = new FrontendAPIProvider(new URI("ws://192.168.6.212:8080/backend-api"));
+        FrontendAPIProvider client = new FrontendAPIProvider(new URI("ws://10.0.2.2:8080/backend-api"));
         client.onOpen(null);
         username = findViewById(R.id.userIn);
         email = findViewById(R.id.emailInput);
