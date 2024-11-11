@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         inputText = findViewById(R.id.inputText);
         String content = inputText.getText().toString(); // 获取输入框内容
 
-        FileOutputStream fout = openFileOutput("stored_text.txt", MODE_PRIVATE);
+        FileOutputStream fout = openFileOutput("stored_text.txt", MODE_PRIVATE); //
         fout.write(content.getBytes()); // 将字符串 转换为 字节数组, 写入文件
         Toast.makeText(MainActivity.this,"已将\""+content+"\"写入到内部存储",Toast.LENGTH_SHORT).show();
         fout.close(); // 记得关闭文件流 (和C语言一样)
