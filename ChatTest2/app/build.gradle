@@ -12,7 +12,6 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -29,7 +28,6 @@ android {
 }
 
 dependencies {
-
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
@@ -41,18 +39,8 @@ dependencies {
     // JSON 解析依赖
     implementation 'org.json:json:20210307'
 
-    // MySQL JDBC 驱动
-    implementation 'mysql:mysql-connector-java:8.0.33'
-
-    // Spring Boot Web 和 WebSocket 依赖
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    // WebSocket 依赖
     implementation 'org.java-websocket:Java-WebSocket:1.5.2'
 
-
-    // 可选：添加 Lombok（如果想简化 Java 代码）
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
-
-
+//    implementation 'org.springframework.boot:spring-boot-starter-logging'
 }

@@ -17,7 +17,7 @@ public class FrontendAPIProvider extends WebSocketClient {
     public boolean isSuccessful = false;
     @Override
     public void onOpen(ServerHandshake handshake) {
-        System.out.println("Connected to WebSocket server");
+        System.out.println("Connected to WebSocket server.");
 
 //        // 示例：发送登录请求
 //        JSONObject loginRequest = new JSONObject();
