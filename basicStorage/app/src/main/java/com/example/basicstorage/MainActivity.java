@@ -1,5 +1,6 @@
 package com.example.basicstorage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -51,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
             fin.read(buffer); // 读取文件内容到缓存区
             String content = new String(buffer);  // 将缓存区的'byte内容' 转换为 字符串
             Toast.makeText(this, "从内部存储读取到的stored_text: "+content, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goExternal(View view) {
+        // 跳转到外部存储操作界面
+        Intent intent = new Intent(MainActivity.this, ExternalStorage.class);
+        startActivity(intent);
     }
 }
 
