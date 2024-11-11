@@ -1,6 +1,7 @@
 package com.example.basicstorage;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -93,4 +94,8 @@ public class ExternalStorage extends AppCompatActivity {
         finish();
     }
 
+    public void goSP(View view) {
+        Intent intent = new Intent(ExternalStorage.this, SharedPreference.class);
+        startActivity(intent);
+    }
 }
